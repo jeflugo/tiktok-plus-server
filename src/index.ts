@@ -1,8 +1,8 @@
 import 'dotenv/config'
 import express from 'express'
 import connectDB from './config/mongo'
-import { router } from './routes/users'
 import morgan from 'morgan'
+import { router } from './routes'
 
 connectDB().then(() => console.log('DB connected...'))
 
@@ -16,6 +16,6 @@ app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => res.send('Home'))
 
-app.use('/users', router)
+app.use(router)
 
 app.listen(PORT, () => console.log(`Running on port ${PORT}...`))
