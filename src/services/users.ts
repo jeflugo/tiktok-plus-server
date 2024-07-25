@@ -7,6 +7,9 @@ const getUsers = async () => {
 const getUser = async (id: string) => {
 	return await User.findById(id)
 }
+const loginUser = async (user: TUser) => {
+	return await User.create(user)
+}
 const postUser = async (user: TUser) => {
 	return await User.create(user)
 }
@@ -17,4 +20,11 @@ const deleteUser = async (id: string) => {
 	return await User.findByIdAndDelete(id)
 }
 
-export default { getUsers, getUser, postUser, updateUser, deleteUser }
+export default {
+	getUsers,
+	getUser,
+	loginUser,
+	postUser,
+	updateUser,
+	deleteUser,
+}

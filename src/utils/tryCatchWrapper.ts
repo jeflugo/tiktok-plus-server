@@ -5,7 +5,7 @@ const tryCatchWrapper =
 	(handler: Function, errorType: string) =>
 	async (req: Request, res: Response) => {
 		try {
-			handler(req, res)
+			res.json(await handler(req))
 		} catch (error) {
 			const msg = error instanceof Error ? error.message : null
 			handleHttp(res, errorType, msg)

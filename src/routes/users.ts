@@ -3,13 +3,16 @@ import {
 	deleteUser,
 	getUser,
 	getUsers,
-	postUser,
+	loginUser,
+	registerUser,
 	upadateUser,
 } from '../controllers/users'
 
 const router = Router()
 
-router.route('/').get(getUsers).post(postUser)
+router.route('/').get(getUsers)
 router.route('/:id').get(getUser).put(upadateUser).delete(deleteUser)
+router.route('/register-user').post(registerUser)
+router.route('/login-user').post(loginUser)
 
 export { router }
